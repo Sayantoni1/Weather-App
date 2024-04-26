@@ -1,28 +1,30 @@
 const express = require("express");
 const path = require('path');
+const hbs =require("hbs");
 const app = express();
 const port = process.env.PORT || 3000;
 
 //public static path
 const static_path = path.join(__dirname, "../public");
 
+app.set('view engine','hbs')
 app.use(express.static(static_path));
 
 //routing
 app.get("/", (req, res) => {
-    res.send("Home")
+    res.render("index")
 });
 
 app.get("/about", (req, res) => {
-    res.send("About Us")
+    res.render("about")
 });
 
 app.get("/weather", (req, res) => {
-    res.send("Weather")
+    res.render("Weather")
 });
 
 app.get("*", (req, res) => {
-    res.send("404 Error Page")
+    res.render("404 Error Page")
 });
 
 app.listen(port, () => {
