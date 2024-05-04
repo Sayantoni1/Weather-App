@@ -24,12 +24,12 @@ app.get("/about", (req, res) => {
     res.render("about")
 });
 
-// app.get("/weather", (req, res) => {
-//     res.render("Weather")
-// });
+app.get("/weather", (req, res) => {
+    res.render("weather")
+});
 
 app.get("*", (req, res) => {
-    res.render("404error",{
+    res.render("404error", {
         errorMessage: "Opps! Page Not Found"
     })
 });
